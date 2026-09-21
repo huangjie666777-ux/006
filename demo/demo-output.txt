@@ -1,0 +1,142 @@
+==> Starting EventRelay.Api on http://127.0.0.1:5080
+info: Microsoft.Hosting.Lifetime[14]
+      Now listening on: http://127.0.0.1:5080
+info: Microsoft.Hosting.Lifetime[0]
+      Application started. Press Ctrl+C to shut down.
+info: Microsoft.Hosting.Lifetime[0]
+      Hosting environment: Production
+info: Microsoft.Hosting.Lifetime[0]
+      Content root path: /home/hj/pairwise/cases/006/a/src/EventRelay.Api
+info: Microsoft.AspNetCore.Hosting.Diagnostics[1]
+      Request starting HTTP/1.1 GET http://127.0.0.1:5080/ - - -
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]
+      Executing endpoint 'HTTP: GET /'
+info: Microsoft.AspNetCore.Http.Result.OkObjectResult[1]
+      Setting HTTP status code 200.
+info: Microsoft.AspNetCore.Http.Result.OkObjectResult[3]
+      Writing value of type '<>f__AnonymousType3`2' as Json.
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]
+      Executed endpoint 'HTTP: GET /'
+info: Microsoft.AspNetCore.Hosting.Diagnostics[2]
+      Request finished HTTP/1.1 GET http://127.0.0.1:5080/ - 200 - application/json;+charset=utf-8 55.7490ms
+==> Service is up
+
+==> Publishing 3 events to stream 'orders'
+info: Microsoft.AspNetCore.Hosting.Diagnostics[1]
+      Request starting HTTP/1.1 POST http://127.0.0.1:5080/streams/orders/events - application/json 43
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]
+      Executing endpoint 'HTTP: POST /streams/{stream}/events => PublishAsync'
+info: Microsoft.AspNetCore.Http.Result.CreatedResult[1]
+      Setting HTTP status code 201.
+info: Microsoft.AspNetCore.Http.Result.CreatedResult[3]
+      Writing value of type '<>f__AnonymousType0`5' as Json.
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]
+      Executed endpoint 'HTTP: POST /streams/{stream}/events => PublishAsync'
+info: Microsoft.AspNetCore.Hosting.Diagnostics[2]
+      Request finished HTTP/1.1 POST http://127.0.0.1:5080/streams/orders/events - 201 - application/json;+charset=utf-8 18.9300ms
+{"id":1,"stream":"orders","type":"order-created","data":{"order":1},"timestamp":"2026-09-21T02:39:09.2827048+00:00"}
+info: Microsoft.AspNetCore.Hosting.Diagnostics[1]
+      Request starting HTTP/1.1 POST http://127.0.0.1:5080/streams/orders/events - application/json 43
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]
+      Executing endpoint 'HTTP: POST /streams/{stream}/events => PublishAsync'
+info: Microsoft.AspNetCore.Http.Result.CreatedResult[1]
+      Setting HTTP status code 201.
+info: Microsoft.AspNetCore.Http.Result.CreatedResult[3]
+      Writing value of type '<>f__AnonymousType0`5' as Json.
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]
+      Executed endpoint 'HTTP: POST /streams/{stream}/events => PublishAsync'
+info: Microsoft.AspNetCore.Hosting.Diagnostics[2]
+      Request finished HTTP/1.1 POST http://127.0.0.1:5080/streams/orders/events - 201 - application/json;+charset=utf-8 0.6996ms
+{"id":2,"stream":"orders","type":"order-created","data":{"order":2},"timestamp":"2026-09-21T02:39:09.2978482+00:00"}
+info: Microsoft.AspNetCore.Hosting.Diagnostics[1]
+      Request starting HTTP/1.1 POST http://127.0.0.1:5080/streams/orders/events - application/json 43
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]
+      Executing endpoint 'HTTP: POST /streams/{stream}/events => PublishAsync'
+info: Microsoft.AspNetCore.Http.Result.CreatedResult[1]
+      Setting HTTP status code 201.
+info: Microsoft.AspNetCore.Http.Result.CreatedResult[3]
+      Writing value of type '<>f__AnonymousType0`5' as Json.
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]
+      Executed endpoint 'HTTP: POST /streams/{stream}/events => PublishAsync'
+info: Microsoft.AspNetCore.Hosting.Diagnostics[2]
+      Request finished HTTP/1.1 POST http://127.0.0.1:5080/streams/orders/events - 201 - application/json;+charset=utf-8 0.3827ms
+{"id":3,"stream":"orders","type":"order-created","data":{"order":3},"timestamp":"2026-09-21T02:39:09.3048664+00:00"}
+
+==> Replaying history after id=1 (GET /streams/orders/events?after=1)
+info: Microsoft.AspNetCore.Hosting.Diagnostics[1]
+      Request starting HTTP/1.1 GET http://127.0.0.1:5080/streams/orders/events?after=1 - - -
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]
+      Executing endpoint 'HTTP: GET /streams/{stream}/events => SubscribeAsync'
+id: 2
+event: order-created
+data: {"id":2,"stream":"orders","type":"order-created","data":{"order":2},"timestamp":"2026-09-21T02:39:09.2978482+00:00"}
+
+id: 3
+event: order-created
+data: {"id":3,"stream":"orders","type":"order-created","data":{"order":3},"timestamp":"2026-09-21T02:39:09.3048664+00:00"}
+
+
+==> Replaying with Last-Event-ID: 2 header
+info: Microsoft.AspNetCore.Hosting.Diagnostics[1]
+      Request starting HTTP/1.1 GET http://127.0.0.1:5080/streams/orders/events - - -
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]
+      Executing endpoint 'HTTP: GET /streams/{stream}/events => SubscribeAsync'
+id: 3
+event: order-created
+data: {"id":3,"stream":"orders","type":"order-created","data":{"order":3},"timestamp":"2026-09-21T02:39:09.3048664+00:00"}
+
+
+==> Live subscription (background) + publishing a new event
+info: Microsoft.AspNetCore.Hosting.Diagnostics[1]
+      Request starting HTTP/1.1 GET http://127.0.0.1:5080/streams/orders/events?after=3 - - -
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]
+      Executing endpoint 'HTTP: GET /streams/{stream}/events => SubscribeAsync'
+info: Microsoft.AspNetCore.Hosting.Diagnostics[1]
+      Request starting HTTP/1.1 POST http://127.0.0.1:5080/streams/orders/events - application/json 43
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]
+      Executing endpoint 'HTTP: POST /streams/{stream}/events => PublishAsync'
+info: Microsoft.AspNetCore.Http.Result.CreatedResult[1]
+      Setting HTTP status code 201.
+info: Microsoft.AspNetCore.Http.Result.CreatedResult[3]
+      Writing value of type '<>f__AnonymousType0`5' as Json.
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]
+      Executed endpoint 'HTTP: POST /streams/{stream}/events => PublishAsync'
+info: Microsoft.AspNetCore.Hosting.Diagnostics[2]
+      Request finished HTTP/1.1 POST http://127.0.0.1:5080/streams/orders/events - 201 - application/json;+charset=utf-8 0.7086ms
+{"id":4,"stream":"orders","type":"order-shipped","data":{"order":1},"timestamp":"2026-09-21T02:39:13.8291799+00:00"}
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]
+      Executed endpoint 'HTTP: GET /streams/{stream}/events => SubscribeAsync'
+info: Microsoft.AspNetCore.Hosting.Diagnostics[2]
+      Request finished HTTP/1.1 GET http://127.0.0.1:5080/streams/orders/events?after=1 - 200 - text/event-stream 4521.2673ms
+==> Live subscriber received:
+id: 4
+event: order-shipped
+data: {"id":4,"stream":"orders","type":"order-shipped","data":{"order":1},"timestamp":"2026-09-21T02:39:13.8291799+00:00"}
+
+
+==> Validation error example (missing 'data')
+info: Microsoft.AspNetCore.Hosting.Diagnostics[1]
+      Request starting HTTP/1.1 POST http://127.0.0.1:5080/streams/orders/events - application/json 17
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]
+      Executing endpoint 'HTTP: POST /streams/{stream}/events => PublishAsync'
+info: Microsoft.AspNetCore.Http.Result.JsonResult[1]
+      Setting HTTP status code 400.
+info: Microsoft.AspNetCore.Http.Result.JsonResult[3]
+      Writing value of type '<>f__AnonymousType1`1' as Json.
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]
+      Executed endpoint 'HTTP: POST /streams/{stream}/events => PublishAsync'
+info: Microsoft.AspNetCore.Hosting.Diagnostics[2]
+      Request finished HTTP/1.1 POST http://127.0.0.1:5080/streams/orders/events - 400 - application/json;+charset=utf-8 3.4661ms
+HTTP 400
+
+==> Demo finished; stopping service
+info: Microsoft.Hosting.Lifetime[0]
+      Application is shutting down...
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]
+      Executed endpoint 'HTTP: GET /streams/{stream}/events => SubscribeAsync'
+info: Microsoft.AspNetCore.Hosting.Diagnostics[2]
+      Request finished HTTP/1.1 GET http://127.0.0.1:5080/streams/orders/events?after=3 - 200 - text/event-stream 33022.4462ms
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]
+      Executed endpoint 'HTTP: GET /streams/{stream}/events => SubscribeAsync'
+info: Microsoft.AspNetCore.Hosting.Diagnostics[2]
+      Request finished HTTP/1.1 GET http://127.0.0.1:5080/streams/orders/events - 200 - text/event-stream 35027.7041ms
