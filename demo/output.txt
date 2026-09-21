@@ -1,0 +1,44 @@
+==> Starting EventRelay on http://127.0.0.1:5080
+
+Build succeeded.
+    0 Warning(s)
+    0 Error(s)
+
+Time Elapsed 00:00:00.96
+==> 1. Publish three events to stream 'demo-44960'
+{"id":1,"stream":"demo-44960","type":"tick","data":{"n":1},"publishedAt":"2026-09-21T05:53:30.782851+00:00"}
+{"id":2,"stream":"demo-44960","type":"tick","data":{"n":2},"publishedAt":"2026-09-21T05:53:30.7980535+00:00"}
+{"id":3,"stream":"demo-44960","type":"tick","data":{"n":3},"publishedAt":"2026-09-21T05:53:30.805393+00:00"}
+==> 2. Replay history from the beginning (after=0), first 3 frames
+: subscribed
+
+id: 1
+event: tick
+data: {"n":1}
+
+id: 2
+event: tick
+data: {"n":2}
+
+id: 3
+event: tick
+==> 3. Replay using Last-Event-ID: 2
+: subscribed
+
+id: 3
+event: tick
+data: {"n":3}
+
+==> 4. Live subscription: subscribe first, then publish a new event
+{"id":4,"stream":"demo-44960","type":"tick","data":{"n":4},"publishedAt":"2026-09-21T05:53:37.8312409+00:00"}
+---- live frames received ----
+: subscribed
+
+id: 4
+event: tick
+data: {"n":4}
+
+==> 5. Validation error (missing type) returns 4xx with error body
+HTTP 400
+{"error":{"code":"invalid_type","message":"Event type must be a non-empty, non-whitespace value."}}
+==> Demo finished

@@ -7,6 +7,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{141E64D5-642
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventRelay.Api", "src\EventRelay.Api\EventRelay.Api.csproj", "{84DE8086-1154-4558-A866-3B358299710C}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{C3EBBFC1-AD3C-46A1-93E0-923F0D27F041}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventRelay.Tests", "tests\EventRelay.Tests\EventRelay.Tests.csproj", "{763739C9-8276-4544-9993-E0FDF54C309D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -20,8 +24,13 @@ Global
 		{84DE8086-1154-4558-A866-3B358299710C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{84DE8086-1154-4558-A866-3B358299710C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{84DE8086-1154-4558-A866-3B358299710C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{763739C9-8276-4544-9993-E0FDF54C309D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{763739C9-8276-4544-9993-E0FDF54C309D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{763739C9-8276-4544-9993-E0FDF54C309D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{763739C9-8276-4544-9993-E0FDF54C309D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{84DE8086-1154-4558-A866-3B358299710C} = {141E64D5-6429-4327-BB38-C42DA1581799}
+		{763739C9-8276-4544-9993-E0FDF54C309D} = {C3EBBFC1-AD3C-46A1-93E0-923F0D27F041}
 	EndGlobalSection
 EndGlobal
